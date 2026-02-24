@@ -1,0 +1,13 @@
+# Variables de entorno
+.env
+
+# Dependencias Angular
+front/node_modules/
+
+# Compilados Spring
+back/target/
+
+# IDEs
+.idea/
+*.iml
+.vscode/

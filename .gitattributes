@@ -1,0 +1,5 @@
+# Manejo de saltos de línea para compatibilidad Windows/Linux
+* text=auto
+*.sh text eol=lf
+*.sh eol=lf
+Dockerfile text eol=lf
