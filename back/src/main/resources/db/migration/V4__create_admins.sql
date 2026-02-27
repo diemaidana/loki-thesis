@@ -1,0 +1,6 @@
+CREATE TABLE admin_permissions (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT UNIQUE REFERENCES users(id) ON DELETE CASCADE,
+    is_super_admin BOOLEAN DEFAULT false,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
