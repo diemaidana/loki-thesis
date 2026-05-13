@@ -1,14 +1,13 @@
 services:
   db:
-    image: postgres:16
+    image: postgres:16-alpine
     container_name: loki_db
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      TZ: ${TZ}
+      POSTGRES_DB: ${LOKI_DB}
+      POSTGRES_USER: ${LOKI_USER}
+      POSTGRES_PASSWORD: ${LOKI_PASSWORD}
     ports:
-      - "5432:5432"
+      - '${LOKI_PORT:-5432}:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
