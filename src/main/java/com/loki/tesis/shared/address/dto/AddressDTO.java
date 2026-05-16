@@ -11,8 +11,6 @@ public record AddressDTO(
         @NotBlank(message = "La calle es obligatoria.")
         @Size(max=100)
         String calle,
-
-        @NotBlank(message = "La altura es obligatoria.")
         @Size(max=20)
         String altura,
 

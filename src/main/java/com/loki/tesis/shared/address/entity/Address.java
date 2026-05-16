@@ -15,10 +15,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Address {
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 100)
     private String calle;
 
-    @Column(nullable = false, length = 20)
+    @Column(length = 20)
     private String altura;
 
     @Column(length = 10)
@@ -33,14 +33,14 @@ public class Address {
     @Column(length = 100)
     private String entreCalleDos;
 
-    @Column(nullable = false, length = 100)
+    @Column(length = 100)
     private String ciudad;
 
-    @Column(nullable = false, length = 30)
+    @Column(length = 30)
     @Enumerated(EnumType.STRING)
     private Provinces provincia;
 
-    @Column(nullable = false, length = 20)
+    @Column(length = 20)
     private String codigoPostal;
 
     @Column(length = 255)

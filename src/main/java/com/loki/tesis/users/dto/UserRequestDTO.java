@@ -21,30 +21,29 @@ public record UserRequestDTO(
         String apellido,
 
         @NotBlank(message = "El email es obligatorio")
-        @Email(message = "El formato del email no es válido")
+        @Email(message = "El formato del email no es valido")
         @Size(max = 100, message = "El email no puede superar los 100 caracteres")
         String email,
 
         @NotBlank(message = "La contraseña es obligatoria")
-        @Size(min = 8, message = "La contraseña debe tener al menos 8 caracteres")
-        @Size(max = 16, message = "La contraseña no puede superar los 16 caracteres")
+        @Size(min = 8, max = 16, message = "La contraseña debe tener entre 8 y 16 caracteres")
         @Pattern(
                 regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).+$",
-                message = "La contraseña debe contener al menos una mayúscula, un número y un carácter especial"
+                message = "La contraseña debe contener al menos una mayuscula, un número y un caracter especial"
         )
         String password,
 
         @NotNull(message = "El tipo de documento es obligatorio")
         SocialNumberType tipoDocumento,
 
-        @NotBlank(message = "El número de documento es obligatorio")
-        @Pattern(regexp = "^\\d+$", message = "El número de documento solo puede contener dígitos")
+        @NotBlank(message = "El numero de documento es obligatorio")
+        @Pattern(regexp = "^\\d+$", message = "El numero de documento solo puede contener digitos")
         String numeroDocumento,
 
-        @Size(max = 20, message = "El número de teléfono no puede superar los 20 caracteres")
+        @Size(max = 20, message = "El numero de telefono no puede superar los 20 caracteres")
         @Pattern(
                 regexp = "^$|^\\+?[0-9 \\-]{6,20}$",
-                message = "El número de teléfono solo puede contener dígitos, espacios, guiones y opcionalmente un '+' al inicio"
+                message = "El numero de telefono solo puede contener dígitos, espacios, guiones y opcionalmente un '+' al inicio"
         )
         String numeroTelefono,
 
@@ -53,7 +52,7 @@ public record UserRequestDTO(
 
 ) {
 
-    @AssertTrue(message = "El DNI debe tener 7 u 8 dígitos; el CUIT/CUIL debe tener exactamente 11")
+    @AssertTrue(message = "El DNI debe tener 7 u 8 digitos; el CUIT/CUIL debe tener exactamente 11")
     public boolean isLongDocumentValid() {
         if (tipoDocumento == null || numeroDocumento == null) {
             return true; // dejamos que @NotNull / @NotBlank reporten el error real

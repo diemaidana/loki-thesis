@@ -15,8 +15,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id")
-@ToString(exclude = {"password"})
 public class User {
 
     // ID privado para la base de datos. Es auto-incremental para facilidad en la busqueda, inserciòn, entre otras.
